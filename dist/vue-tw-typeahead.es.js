@@ -143,7 +143,7 @@ function V(t, r, c, a, l, e) {
     ]),
     e.filteredList.length > 0 && l.showSearchItems == !0 ? (d(), h("aside", {
       key: 0,
-      class: _(["absolute z-10 flex flex-col items-start w-64", e.classSelectProps]),
+      class: _("absolute z-10 flex flex-col items-start w-64" + e.classSelectProps),
       role: "menu",
       "aria-labelledby": "menu-heading"
     }, [
