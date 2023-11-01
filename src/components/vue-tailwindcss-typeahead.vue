@@ -11,7 +11,7 @@
               ref="searchBox"
           />
       </div>
-      <aside class="absolute z-10 flex flex-col items-start w-64 bg-white border rounded-md shadow-md mt-1"
+      <aside class="absolute z-10 flex flex-col items-start w-64" :class="classSelectProps"
              role="menu" aria-labelledby="menu-heading" v-if="filteredList.length > 0 && showSearchItems == true">
           <ul class="flex flex-col w-full">
               <li
@@ -52,6 +52,10 @@ export default {
       inputClass: {
         type: Array,
         default: ['w-full','px-5','py-3','border','border-gray-400','rounded-lg','outline-none','focus:shadow-outline']
+      },
+      selectClass: {
+        type: Array,
+        default: ['bg-white','border','rounded-md','shadow-md','mt-1']
       }
   },
   data() {
@@ -72,6 +76,9 @@ export default {
 
       classProps() {
         return [...this.inputClass]
+      },
+      classSelectProps() {
+        return [...this.selectClass]
       }
   },
   methods: {
