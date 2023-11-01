@@ -9,6 +9,7 @@
               v-model="search"
               @input="showSearchItems = true"
               ref="searchBox"
+              :name="name"
           />
       </div>
       <aside :class="'absolute z-10 flex flex-col items-start w-64 ' + selectClass"
@@ -33,6 +34,9 @@ export default {
       ClickOutside
   },
   props: {
+      name: {
+        type: String,
+      },
       lists: {
         type: Array,
         default: []

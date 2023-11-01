@@ -47,17 +47,20 @@ var v = { exports: {} };
     }
   };
 })(v);
-const g = v.exports, L = (t, r) => {
+const g = v.exports, S = (t, r) => {
   const n = t.__vccOpts || t;
   for (const [a, i] of r)
     n[a] = i;
   return n;
-}, S = {
+}, L = {
   name: "VueTwTypeahead",
   directives: {
     ClickOutside: g
   },
   props: {
+    name: {
+      type: String
+    },
     lists: {
       type: Array,
       default: []
@@ -124,7 +127,7 @@ const g = v.exports, L = (t, r) => {
       this.selectedItem = (t = n[0]) == null ? void 0 : t.name, this.search = (r = n[0]) == null ? void 0 : r.name;
     }
   }
-}, b = { class: "w-full" }, O = { class: "mt-1 flex rounded-md shadow-sm" }, T = ["placeholder"], E = { class: "flex flex-col w-full" }, P = ["onClick"];
+}, b = { class: "w-full" }, O = { class: "mt-1 flex rounded-md shadow-sm" }, T = ["placeholder", "name"], E = { class: "flex flex-col w-full" }, P = ["onClick"];
 function V(t, r, n, a, i, e) {
   const c = k("click-outside");
   return p((d(), h("div", b, [
@@ -136,7 +139,8 @@ function V(t, r, n, a, i, e) {
         "aria-label": "Search",
         "onUpdate:modelValue": r[0] || (r[0] = (s) => i.search = s),
         onInput: r[1] || (r[1] = (s) => i.showSearchItems = !0),
-        ref: "searchBox"
+        ref: "searchBox",
+        name: n.name
       }, null, 42, T), [
         [y, i.search]
       ])
@@ -161,7 +165,7 @@ function V(t, r, n, a, i, e) {
     [c, e.hideMenu]
   ]);
 }
-const A = /* @__PURE__ */ L(S, [["render", V]]);
+const A = /* @__PURE__ */ S(L, [["render", V]]);
 export {
   A as VueTwTypeahead
 };
