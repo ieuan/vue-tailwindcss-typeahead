@@ -1,58 +1,58 @@
 import { resolveDirective as k, withDirectives as p, openBlock as d, createElementBlock as h, createElementVNode as m, normalizeClass as _, vModelText as y, Fragment as w, renderList as x, toDisplayString as I, createCommentVNode as C } from "vue";
 var v = { exports: {} };
 (function(t, r) {
-  function c(e) {
+  function n(e) {
     return typeof e.value != "function" ? (console.warn("[Vue-click-outside:] provided expression", e.expression, "is not a function."), !1) : !0;
   }
-  function a(e, n) {
-    if (!e || !n)
+  function a(e, c) {
+    if (!e || !c)
       return !1;
-    for (var s = 0, i = n.length; s < i; s++)
+    for (var s = 0, l = c.length; s < l; s++)
       try {
-        if (e.contains(n[s]))
+        if (e.contains(c[s]))
           return !0;
-        if (n[s].contains(e))
+        if (c[s].contains(e))
           return !1;
       } catch {
         return !1;
       }
     return !1;
   }
-  function l(e) {
+  function i(e) {
     return typeof e.componentInstance < "u" && e.componentInstance.$isServer;
   }
   t.exports = {
-    bind: function(e, n, s) {
-      if (!c(n))
+    bind: function(e, c, s) {
+      if (!n(c))
         return;
-      function i(o) {
+      function l(o) {
         if (!!s.context) {
           var u = o.path || o.composedPath && o.composedPath();
           u && u.length > 0 && u.unshift(o.target), !(e.contains(o.target) || a(s.context.popupItem, u)) && e.__vueClickOutside__.callback(o);
         }
       }
       e.__vueClickOutside__ = {
-        handler: i,
-        callback: n.value
+        handler: l,
+        callback: c.value
       };
       const f = "ontouchstart" in document.documentElement ? "touchstart" : "click";
-      !l(s) && document.addEventListener(f, i);
+      !i(s) && document.addEventListener(f, l);
     },
-    update: function(e, n) {
-      c(n) && (e.__vueClickOutside__.callback = n.value);
+    update: function(e, c) {
+      n(c) && (e.__vueClickOutside__.callback = c.value);
     },
-    unbind: function(e, n, s) {
-      const i = "ontouchstart" in document.documentElement ? "touchstart" : "click";
-      !l(s) && e.__vueClickOutside__ && document.removeEventListener(i, e.__vueClickOutside__.handler), delete e.__vueClickOutside__;
+    unbind: function(e, c, s) {
+      const l = "ontouchstart" in document.documentElement ? "touchstart" : "click";
+      !i(s) && e.__vueClickOutside__ && document.removeEventListener(l, e.__vueClickOutside__.handler), delete e.__vueClickOutside__;
     }
   };
 })(v);
-const g = v.exports, S = (t, r) => {
-  const c = t.__vccOpts || t;
-  for (const [a, l] of r)
-    c[a] = l;
-  return c;
-}, L = {
+const g = v.exports, L = (t, r) => {
+  const n = t.__vccOpts || t;
+  for (const [a, i] of r)
+    n[a] = i;
+  return n;
+}, S = {
   name: "VueTwTypeahead",
   directives: {
     ClickOutside: g
@@ -111,7 +111,7 @@ const g = v.exports, S = (t, r) => {
       this.search = t.name, this.selectedItem = t.name, this.showSearchItems = !1, this.$emit("selected", t), this.clearInputWhenClicked && (this.search = "");
     },
     checkIgnoreListItem(t) {
-      return this.ignoredList.length > 0 ? this.ignoredList.some((c) => c == t) : !1;
+      return this.ignoredList.length > 0 ? this.ignoredList.some((n) => n == t) : !1;
     },
     hideMenu() {
       this.showSearchItems == !0 && (this.showSearchItems = !1);
@@ -120,48 +120,48 @@ const g = v.exports, S = (t, r) => {
   created() {
     var t, r;
     if (this.selectedData != 0) {
-      const c = this.lists.filter((a) => a.id === this.selectedData);
-      this.selectedItem = (t = c[0]) == null ? void 0 : t.name, this.search = (r = c[0]) == null ? void 0 : r.name;
+      const n = this.lists.filter((a) => a.id === this.selectedData);
+      this.selectedItem = (t = n[0]) == null ? void 0 : t.name, this.search = (r = n[0]) == null ? void 0 : r.name;
     }
   }
-}, b = { class: "w-full" }, O = { class: "mt-1 flex rounded-md shadow-sm" }, P = ["placeholder"], T = { class: "flex flex-col w-full" }, E = ["onClick"];
-function V(t, r, c, a, l, e) {
-  const n = k("click-outside");
+}, b = { class: "w-full" }, O = { class: "mt-1 flex rounded-md shadow-sm" }, T = ["placeholder"], E = { class: "flex flex-col w-full" }, P = ["onClick"];
+function V(t, r, n, a, i, e) {
+  const c = k("click-outside");
   return p((d(), h("div", b, [
     m("div", O, [
       p(m("input", {
         type: "text",
         class: _(e.classProps),
-        placeholder: c.placeholder,
+        placeholder: n.placeholder,
         "aria-label": "Search",
-        "onUpdate:modelValue": r[0] || (r[0] = (s) => l.search = s),
-        onInput: r[1] || (r[1] = (s) => l.showSearchItems = !0),
+        "onUpdate:modelValue": r[0] || (r[0] = (s) => i.search = s),
+        onInput: r[1] || (r[1] = (s) => i.showSearchItems = !0),
         ref: "searchBox"
-      }, null, 42, P), [
-        [y, l.search]
+      }, null, 42, T), [
+        [y, i.search]
       ])
     ]),
-    e.filteredList.length > 0 && l.showSearchItems == !0 ? (d(), h("aside", {
+    e.filteredList.length > 0 && i.showSearchItems == !0 ? (d(), h("aside", {
       key: 0,
-      class: _("absolute z-10 flex flex-col items-start w-64" + e.classSelectProps),
+      class: _("absolute z-10 flex flex-col items-start w-64 " + n.selectClass),
       role: "menu",
       "aria-labelledby": "menu-heading"
     }, [
-      m("ul", T, [
-        (d(!0), h(w, null, x(e.filteredList, (s, i) => (d(), h("li", {
-          class: "px-2 py-3 space-x-2 hover:bg-blue-600 hover:text-white focus:bg-blue-600 focus:text-white focus:outline-none",
-          key: i,
+      m("ul", E, [
+        (d(!0), h(w, null, x(e.filteredList, (s, l) => (d(), h("li", {
+          class: "px-2 py-3 space-x-2 hover:cursor-pointer hover:bg-blue-600 hover:text-white focus:bg-blue-600 focus:text-white focus:outline-none",
+          key: l,
           onClick: (f) => {
-            e.selectSearchItem(s), l.showSearchItems = !1;
+            e.selectSearchItem(s), i.showSearchItems = !1;
           }
-        }, I(s.name), 9, E))), 128))
+        }, I(s.name), 9, P))), 128))
       ])
     ], 2)) : C("", !0)
   ])), [
-    [n, e.hideMenu]
+    [c, e.hideMenu]
   ]);
 }
-const A = /* @__PURE__ */ S(L, [["render", V]]);
+const A = /* @__PURE__ */ L(S, [["render", V]]);
 export {
   A as VueTwTypeahead
 };
