@@ -58,8 +58,8 @@ export default {
         default: ['w-full','px-5','py-3','border','border-gray-400','rounded-lg','outline-none','focus:shadow-outline']
       },
       selectClass: {
-        type: Array,
-        default: ['bg-white','border','rounded-md','shadow-md','mt-1']
+        type: String,
+        default: 'bg-white border rounded-md shadow-md mt-1'
       }
   },
   data() {
