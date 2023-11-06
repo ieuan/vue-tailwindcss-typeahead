@@ -1,4 +1,4 @@
-import { resolveDirective as k, withDirectives as p, openBlock as d, createElementBlock as h, createElementVNode as m, normalizeClass as _, vModelText as y, Fragment as w, renderList as x, toDisplayString as I, createCommentVNode as C } from "vue";
+import { resolveDirective as k, withDirectives as p, openBlock as d, createElementBlock as h, createElementVNode as m, normalizeClass as _, vModelText as y, Fragment as w, renderList as x, toDisplayString as I, createCommentVNode as g } from "vue";
 var v = { exports: {} };
 (function(t, r) {
   function n(e) {
@@ -47,7 +47,7 @@ var v = { exports: {} };
     }
   };
 })(v);
-const g = v.exports, S = (t, r) => {
+const C = v.exports, S = (t, r) => {
   const n = t.__vccOpts || t;
   for (const [a, i] of r)
     n[a] = i;
@@ -55,7 +55,7 @@ const g = v.exports, S = (t, r) => {
 }, L = {
   name: "VueTwTypeahead",
   directives: {
-    ClickOutside: g
+    ClickOutside: C
   },
   props: {
     name: {
@@ -82,8 +82,8 @@ const g = v.exports, S = (t, r) => {
       default: ["w-full", "px-5", "py-3", "border", "border-gray-400", "rounded-lg", "outline-none", "focus:shadow-outline"]
     },
     selectClass: {
-      type: Array,
-      default: ["bg-white", "border", "rounded-md", "shadow-md", "mt-1"]
+      type: String,
+      default: "bg-white border rounded-md shadow-md mt-1"
     }
   },
   data() {
@@ -160,12 +160,12 @@ function V(t, r, n, a, i, e) {
           }
         }, I(s.name), 9, P))), 128))
       ])
-    ], 2)) : C("", !0)
+    ], 2)) : g("", !0)
   ])), [
     [c, e.hideMenu]
   ]);
 }
-const A = /* @__PURE__ */ S(L, [["render", V]]);
+const B = /* @__PURE__ */ S(L, [["render", V]]);
 export {
-  A as VueTwTypeahead
+  B as VueTwTypeahead
 };
